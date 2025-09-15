@@ -1,0 +1,78 @@
+.bg {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Wikimania_2023_Background_1920x1080_-_Blue.png/960px-Wikimania_2023_Background_1920x1080_-_Blue.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    animation: moveBackground 10s linear infinite;
+}.wText{color: cornsilk}
+.centre{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+.close-image img {
+    display: block;
+    height: 100px;
+    width: 160px;
+}
+.close-image{
+    background-image:
+            linear-gradient(rgba(138,43,226, 0.4), rgba(255, 0, 0, 0.4), rgba(138,43,226, 0.4)),
+            url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Tiles069_8K_Displacement.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    animation: moveButton 10s linear infinite;
+    border-radius: 15%;
+    box-shadow: 5px 5px 10px 3px rgba(0,0,0,0.5);
+}
+.close-image:hover{
+    border-radius: 30%;
+    background-image:
+            linear-gradient(rgba(43,138,226, 0.6), rgba(0, 255, 0, 0.6), rgba(43,138,226, 0.6)),
+            url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Tiles069_8K_Displacement.png");
+
+}
+
+.close-image img{
+    transition: transform 0.3s ease;
+}
+.close-image:hover img{
+    transform: scale(1.2);
+}
+
+.blueprint{
+    background-image: url("https://images.squarespace-cdn.com/content/v1/6441763ab87f1b6067f2237c/28844c94-01f3-4472-90ed-520e1f878732/TVE3_05.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    color:black;
+    font-weight: bold;
+}
+
+.bgWhite{
+    background-color: wheat;
+    padding: 2px 4px;
+}
+
+p{text-align: center}
+
+.button{
+    font-size: large;
+    padding: 4px 32px;
+}
+
+::selection {
+    background-color: black;
+    color: wheat;
+}
+
+@keyframes moveBackground {
+    from { background-position: 0 0; }
+    to   { background-position: -1000px -2000px; } /* move horizontally */
+}
+@keyframes moveButton {
+    from { background-position: 0 0; }
+    to   { background-position: 640px 640px; } /* move horizontally */
+}

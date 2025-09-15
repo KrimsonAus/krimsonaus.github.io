@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg">
+<h1 id="welcome" class="wText centre">Welcome </h1>
+<hr>
+<h2 class="wText centre"><u>Visitors:</u></h2>
+<p class="wText" id="otherUsers"></p>
+<hr>
+<p class="wText">Please select a destination from below:</p>
+<div class="centre">
+    <button class="close-image" id="button1"><img  id="img1" src="" alt=""><p class="wText">PS1</p></button>
+    <button class="close-image" id="button2"><img  id="img2" src="" alt=""><p class="wText">XBOX</p></button>
+    <button class="close-image" id="button3"><img  id="img3" src="" alt=""><p class="wText">NES</p></button>
+
+</div>
+
+
+<script>
+    const images = [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/PSX-Console-wController.png/640px-PSX-Console-wController.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Xbox-Console-Set.png/640px-Xbox-Console-Set.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/NES-Console-Set.png/640px-NES-Console-Set.png"
+    ];
+
+    for (let i = 0; i < images.length; i++) {
+        const imgElement = document.getElementById(`img${i + 1}`);
+        imgElement.src = images[i];
+    }
+
+
+    fetch('login.txt')
+        .then(response => response.text())
+        .then(text => {
+            const lines = text.trim().split('\n'); // split by newlines
+            const lastLine = lines[lines.length - 1]; // get last line
+            document.getElementById('welcome').textContent += lastLine + "!";
+            document.getElementById('otherUsers').innerHTML = lines.join('<br>');
+        })
+        .catch(err => console.error('Could not load username:', err));
+
+    let buttons=3;
+    for(let i = 0; i < buttons; i++) {
+        document.getElementById(`button${i+1}`).addEventListener("click", async () => {
+            window.location.href = `subpage${i+1}.html`;
+        });
+    }
+
+</script>
+
+</body>
+</html>
