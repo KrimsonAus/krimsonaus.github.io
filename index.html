@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg">
+
+<div class="centre">
+    <h2 class="wText">please log in:</h2>
+</div>
+<p class="wText">username:</p>
+<div class="centre">
+    <label>
+        <input id="userInput" placeholder="Enter username" type="text">
+        <br>
+        <br>
+        <div class="centre">
+        <button id="saveBtn" class="centre">Submit login</button>
+        </div>
+    </label>
+</div>
+<script>
+    document.getElementById("saveBtn").addEventListener("click", async () => {
+        const text = document.getElementById("userInput").value.trim();
+        const lowerText = text.toLowerCase();
+
+        try {
+            const res = await fetch("https://raw.githubusercontent.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en");
+            const badWordsText = await res.text();
+
+            const badWords = badWordsText.split("\n").map(word => word.trim().toLowerCase());
+
+            const words = lowerText.split(/\W+/);
+
+            const found = words.some(word => badWords.includes(word));
+
+            if (found) {
+                alert("Your input contains disallowed words. Please remove them.");
+                document.getElementById("userInput").value = ""; // Clear the input
+                return;
+            }
+
+            const response = await fetch("/save", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text })
+            });
+
+            window.location.href = "main.html";
+
+        } catch (err) {
+            console.error("Validation error:", err);
+            alert("Could not validate input right now. Try again later.");
+        }
+    });
+
+</script>
+
+</body>
+</html>
