@@ -1,1 +1,0 @@
-# krimsonaus.github.io
