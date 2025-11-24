@@ -4,6 +4,7 @@
 
 body {
     background-image: url("Snow.png");
+    animation: moveIt 10s linear infinite;
 }
 
 .whitetext {
