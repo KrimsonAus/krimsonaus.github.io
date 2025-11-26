@@ -4,7 +4,7 @@
 
 body {
     background-image: url("Snow.png");
-    animation: moveIt 10s linear infinite;
+    animation: moveIt 25s linear infinite;
 }
 
 .whitetext {
@@ -43,4 +43,13 @@ body {
 
 .topimg{
     width: 10%;
+}
+
+@keyframes moveIt {
+    from {background-position: top left;}
+    to {background-position: bottom right;}
+}
+
+.metalball{
+    width: 5%;
 }
