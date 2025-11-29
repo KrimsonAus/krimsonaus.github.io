@@ -120,8 +120,8 @@ document.addEventListener('mouseup', () => {
 
 contact.addEventListener('mouseover', (e) => {
     hovers=true;
-})
+});
 
 contact.addEventListener('mouseout', () => {
-    
-})
+    hovers=false;
+});
