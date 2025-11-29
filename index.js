@@ -19,6 +19,8 @@ let dest = false;
 let posx=0;
 let posy=0;
 
+let hovers=false;
+
 function update() {
     if (!isDragging) {
         velocityY += gravity;
@@ -60,7 +62,7 @@ function update() {
         dest = true;
     }
     
-    if(dest){
+    if(dest && !hovers){
         if(currentY!== r){
             if(r>currentY){
                 posy++;
@@ -116,3 +118,10 @@ document.addEventListener('mouseup', () => {
     isDragging = false;
 });
 
+contact.addEventListener('mouseover', (e) => {
+    hovers=true;
+})
+
+contact.addEventListener('mouseout', () => {
+    hovers=false;
+})
