@@ -118,10 +118,10 @@ document.addEventListener('mouseup', () => {
     isDragging = false;
 });
 
-contact.addEventListener('mouseenter', (e) => {
+contact.addEventListener('mouseover', (e) => {
     hovers=true;
 })
 
 contact.addEventListener('mouseout', () => {
-    hovers=false;
+    
 })
